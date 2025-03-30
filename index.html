@@ -11,14 +11,13 @@
     <meta property="og:image" content="">
     <title>Mi portfolio</title>
     <link rel="shortcut icon" href="./public/icons/sunflower.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./public/css/app.min.css">
+    <link rel="stylesheet" href="./public/css/app.css">
     <script src="./resources/index.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
 
@@ -39,7 +38,8 @@
                                 <a href="#" class="navbar-item hover:text-gray-300">Contacto</a>
                             </div>
                             <div class="md:hidden">
-                                <button class="focus:outline-none menu-button" aria-label="Menú principal" aria-expanded="false" aria-controls="menu1" role="button">
+                                <button class="focus:outline-none menu-button" aria-label="Menú principal"
+                                    aria-expanded="false" aria-controls="menu1" role="button">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -69,289 +69,250 @@
                 </div>
             </div>
         </section>
-        <section class="flex flex-col justify-center items-center px-4 min-h-screen py-16">
-            <div class="max-w-7xl mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 items-center">
-                <div class="p-6 fade-in">
-                    <h3 class="lg:text-6xl md:text-5xl text-4xl font-semibold text-gray-800 mb-12">
-                        We believe in the power of creativity, strategy, and technology to drive business success.
-                    </h3>
-                    <p class="mt-2 text-gray-400">
-                        Whether you are a startup looking to establish your brand or an established company seeking to
-                        revamp your digital presence.
+        <section class="px-16 py-12 bg-gray-100">
+            <div class="grid  grid-cols-1 md:grid-cols-2 gap-8">
+                <article class="flex flex-col justify-center md:pr-8">
+                    <h2 class="text-6xl text-gray-900 mb-6">
+                        Creamos Webs que Impulsan tu Negocio
+                    </h2>
+                    <p class="text-base md:text-md text-gray-900">
+                        En un mundo digital en constante evolución, tu presencia online es la carta de presentación de
+                        tu
+                        negocio. Creamos páginas web que no solo son visualmente atractivas, sino que también están
+                        diseñadas estratégicamente para atraer a tu público objetivo y convertir visitantes en clientes.
                     </p>
-                </div>
-                <div class="bg-gradient-to-r from-pink-200 via-rose-100 to-purple-200 rounded fade-up h-[50vh]">
-                </div>
-            </div>
-        </section>
-        <section class="py-32 px-4">
-            <div class="grid md:grid-cols-2 grid-cols-1 gap-2">
-                <div>
-                    <img src="./public/img/benijo.webp" alt="" class="rounded-lg mb-4 h-[400px] object-cover">
-                    <span class="text-lg">Lorem ipsum</span>
-                </div>
-                <div>
-                    <img src="./public/img/img_abstract.webp" alt="" class="rounded-lg mb-4 h-[400px] object-cover">
-                    <span class="text-lg">Lorem ipsum</span>
+                </article>
+                <div class="flex justify-center items-center">
+                    <img src="https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        class="rounded-lg object-contain">
                 </div>
             </div>
         </section>
-        <section class="flex items-center py-32">
-            <div
-                class="bg-gray-800 p-8 md:px-20 md:py-12 mt-12 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
-                <h2 class="text-white text-4xl md:text-6xl tracking-tight">
-                    Build faster websites.
-                </h2>
-                <p class="text-slate-400 mt-4 text-lg md:text-xl">
-                    Pull content from anywhere and serve it fast with Astro's next-gen island
-                    architecture.
-                </p>
-                <div class="flex mt-5"> <a href="#"
-                        class="rounded-sm text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-white text-black border-2 border-transparent">
-                        Get Started
-                    </a>
+        <section class="py-12 px-4 bg-gray-800">
+            <div class="container mx-auto py-12 px-4">
+                <article class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-200 mb-4">Conoce nuestros precios</h2>
+                    <p class="text-lg text-gray-400">Elige el plan que mejor se adapte a tus necesidades.</p>
+                </article>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="bg-white shadow-md p-6 text-center fade-up">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Plan Básico</h3>
+                        <p class="text-gray-600 mb-4">Descripción del plan básico.</p>
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-blue-800">$19/mes</span>
+                            <p class="text-sm text-gray-500">Pago mensual</p>
+                        </div>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 1</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 2</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span>Característica 3</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 text-center">
+                            <a href="#" class="btn btn-primary">Seleccionar</a>
+                        </div>
+                    </article>
+                    <article class="bg-white shadow-md p-6 text-center fade-up delay-500">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Plan Estándar</h3>
+                        <p class="text-gray-600 mb-4">Descripción del plan estándar.</p>
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-blue-800">$49/mes</span>
+                            <p class="text-sm text-gray-500">Pago mensual</p>
+                        </div>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 1</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 2</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 3</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 text-center">
+                            <a href="#" class="btn btn-primary">Seleccionar</a>
+                        </div>
+                    </article>
+                    <article class="bg-white shadow-md p-6 text-center fade-up delay-1000">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Plan Custom</h3>
+                        <p class="text-gray-600 mb-4">Descripción del plan Custom.</p>
+                        <div class="text-center py-8">
+                        </div>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 1</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 2</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Característica 3</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 text-center">
+                            <a href="#" class="btn">Seleccionar</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-16 py-32 bg-gray-101000">
-  <article class="flex flex-col justify-center md:pr-8">
-    <h2 class="text-2xl md:text-3xl text-gray-900 mb-4">
-      Creamos Webs que Impulsan tu Negocio
-    </h2>
-    <p class="text-base md:text-md text-gray-900">
-      En un mundo digital en constante evolución, tu presencia online es la carta de presentación de tu negocio. Creamos páginas web que no solo son visualmente atractivas, sino que también están diseñadas estratégicamente para atraer a tu público objetivo y convertir visitantes en clientes.
-    </p>
-  </article>
-  <div class="flex justify-center items-center">
-    <img src="https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="rounded-lg object-contain">
-  </div>
-        </section>
-        <section class="flex flex-col justify-center pt-32 pb-16 px-6 bg-gray-800 min-h-screen fade-up">
-            <article class="text-center text-gray-100">
-                <div class="mx-auto w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 bg-pink-500 rounded-full mb-4"></div>
-                <h2 class="text-lg">Our hotels</h2>
-                <p class="text-6xl my-6">
-                    Discover a stylish downtown retreat where the vibrant energy of the city meets the serene charm of a
-                    rooftop terrace.
-                </p>
-            </article>
-            <article class="py-16 lg:px-32 md:px-12 px-4">
-                <div class="grid md:grid-cols-3 grid-cols-1 w-full">
-                    <div class="border border-white py-12 px-4">
-                        <div class="mx-auto w-8 h-8 md:w-12 md:h-12 lg:w-24 lg:h-24 bg-gray-500 rounded-full mb-4">
-                        </div>
-                        <p class="text-center text-lg text-gray-200">3 Bars and restaurants</p>
-                    </div>
-                    <div class="border border-white py-12 px-4">
-                        <div class="mx-auto w-8 h-8 md:w-12 md:h-12 lg:w-24 lg:h-24 bg-gray-500 rounded-full mb-4">
-                        </div>
-                        <p class="text-center text-lg text-gray-200">3 Bars and restaurants</p>
-                    </div>
-                    <div class="border border-white py-12 px-4">
-                        <div class="mx-auto w-8 h-8 md:w-12 md:h-12 lg:w-24 lg:h-24 bg-gray-500 rounded-full mb-4">
-                        </div>
-                        <p class="text-center text-lg text-gray-200">3 Bars and restaurants</p>
-                    </div>
-                </div>
-            </article>
-        </section>
-        <section class="min-h-screen pt-36 pb-4 md:px-16 px-4">
-            <article class="px-4 mb-12">
-                <h3 class="text-4xl text-gray-800 fade-up">Book a room</h3>
-            </article>
-            <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
-                <div class="md:mb-12 mb-10 md:px-4 px-0">
-                    <div class="card card-center img-hover group">
-                        <img class="card-image" src="./public/img/benijo.webp" alt="Benijo suite">
-                        <a href="#" class="btn btn-primary btn-overlay">
-                            Reservar
-                        </a>
-                    </div>
-                    <div class="flex justify-between items-end p-2">
-                        <h3 class="text-2xl">Suite metropolitan</h3>
-                        <div class="flex items-end">
-                            <span class="px-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15">
-                                    <path
-                                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                                </svg>
-                            </span>
-                            <span>2 people</span>
+        <section class="py-12 px-4 bg-gray-100">
+            <div class="container mx-auto">
+                <article class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Explora nuestros proyectos</h2>
+                    <p class="text-lg text-gray-400">Conoce webs de clientes satisfechos.</p>
+                </article>
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
+                    <div class="md:mb-12 mb-10 md:px-4 px-0">
+                        <div class="card card-center img-hover group">
+                            <img class="card-image" src="./public/img/benijo.webp" alt="Benijo suite">
+                            <a href="#" class="btn btn-primary btn-overlay">
+                                Ver website
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class=" md:mb-12 mb-10 md:px-4 px-0">
-                    <div class="card card-center img-hover group">
-                        <img class="card-image" src="./public/img/coffee1.webp" alt="Benijo suite">
-                        <a href="#" class="btn btn-primary btn-overlay">
-                            Reservar
-                        </a>
-                    </div>
-                    <div class="flex justify-between items-end p-2">
-                        <h3 class="text-2xl">Suite metropolitan</h3>
-                        <div class="flex items-end">
-                            <span class="px-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15">
-                                    <path
-                                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                                </svg>
-                            </span>
-                            <span>2 people</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:mb-12 mb-10 md:px-4 px-0">
-                    <div class="card card-center img-hover group">
-                        <img class="card-image" src="./public/img/teide.webp" alt="Benijo suite">
-                        <a href="#" class="btn btn-primary btn-overlay">
-                            Reservar
-                        </a>
-                    </div>
-                    <div class="flex justify-between items-end p-2">
-                        <h3 class="text-2xl">Suite metropolitan</h3>
-                        <div class="flex items-end">
-                            <span class="px-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15">
-                                    <path
-                                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                                </svg>
-                            </span>
-                            <span>2 people</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:mb-12 mb-10 md:px-4 px-0">
-                    <div class="card card-center img-hover group">
-                        <img class="card-image" src="./public/img/benijo.webp" alt="Benijo suite">
-                        <a href="#" class="btn btn-primary btn-overlay">
-                            Reservar
-                        </a>
-                    </div>
-                    <div class="flex justify-between items-end p-2">
-                        <h3 class="text-2xl">Suite metropolitan</h3>
-                        <div class="flex items-end">
-                            <span class="px-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15">
-                                    <path
-                                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                                </svg>
-                            </span>
-                            <span>2 people</span>
+                    <div class=" md:mb-12 mb-10 md:px-4 px-0">
+                        <div class="card card-center img-hover group">
+                            <img class="card-image" src="./public/img/coffee1.webp" alt="Benijo suite">
+                            <a href="#" class="btn btn-primary btn-overlay">
+                                Ver website
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="swiper-container mx-4 my-12">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Juan</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">¡Excelente servicio!</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">María</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Muy recomendable.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Carlos</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Volveré sin duda.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Lucía</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Muy profesional.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Pedro</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">¡Excelente experiencia!</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Ana</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Un trato excepcional, volveré.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Eduardo</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Servicio rápido y eficiente.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Isabel</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Todo perfecto, muy amable.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Fernando</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Buena calidad y atención.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
-            <p class="font-semibold text-base md:text-lg lg:text-xl">Sara</p>
-            <p class="text-gray-300 text-sm md:text-base lg:text-lg">Una experiencia increíble.</p>
-            <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
-          </div>
-        </div>
-      </div>
-    </section>
-        <section class="min-h-screen pt-36 pb-4 md:px-16 px-4">
-            <div class="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 gap-4">
-                <div class="card">
-                    <div class="card-content bg-gray-100">
-                        <img src="./public/img/coffee1.webp" alt="">
-                        <article class="p-4">
-                            <h1 class="text-lg">Titulo</h1>
-                            <p>Contenido</p>
-                        </article>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Juan</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">¡Excelente servicio!</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-content bg-gray-100">
-                        <img src="./public/img/coffee1.webp" alt="">
-                        <article class="p-4">
-                            <h1 class="text-lg">Titulo</h1>
-                            <p>Contenido</p>
-                        </article>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">María</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Muy recomendable.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-content bg-gray-100">
-                        <img src="./public/img/coffee1.webp" alt="">
-                        <article class="p-4">
-                            <h1 class="text-lg">Titulo</h1>
-                            <p>Contenido</p>
-                        </article>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Carlos</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Volveré sin duda.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-content bg-gray-100">
-                        <img src="./public/img/coffee1.webp" alt="">
-                        <article class="p-4">
-                            <h1 class="text-lg">Titulo</h1>
-                            <p>Contenido</p>
-                        </article>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Lucía</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Muy profesional.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Pedro</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">¡Excelente experiencia!</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Ana</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Un trato excepcional, volveré.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Eduardo</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Servicio rápido y eficiente.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Isabel</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Todo perfecto, muy amable.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Fernando</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Buena calidad y atención.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★☆</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div
+                        class="bg-gray-500 text-white flex flex-col justify-between rounded-lg shadow-md p-4 sm:p-6 lg:p-8 w-full max-w-md mx-auto h-48">
+                        <p class="font-semibold text-base md:text-lg lg:text-xl">Sara</p>
+                        <p class="text-gray-300 text-sm md:text-base lg:text-lg">Una experiencia increíble.</p>
+                        <p class="text-yellow-500 text-lg md:text-xl lg:text-2xl">★★★★★</p>
                     </div>
                 </div>
             </div>
@@ -406,24 +367,24 @@
         </div>
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    spaceBetween: 10,
-    breakpoints: {
-      // Pantallas pequeñas
-      640: {
-        slidesPerView: 1.5,
-      },
-      768: {
-        slidesPerView: 3,
-      },
-      1024: {
-        slidesPerView: 4,
-      },
-    },
-  });
-</script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            spaceBetween: 10,
+            breakpoints: {
+                // Pantallas pequeñas
+                640: {
+                    slidesPerView: 1.5,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    </script>
     <script>
         const images = document.querySelectorAll('.fade-in-out');
         let currentIndex = 0;

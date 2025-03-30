@@ -32,7 +32,7 @@
     }
 
     .btn-primary {
-        @apply border-[var(--primary-color)] bg-[var(--light-color)] hover:bg-[var(--light-hover-color)] text-[var(--primary-color)] focus:ring-[var(--primary-color)];
+        @apply border-[var(--light-color)] bg-[var(--primary-color)] hover:bg-[var(--primary-hover-color)] text-[var(--light-color)] focus:ring-[var(--primary-color)];
     }
 
     .btn-secondary {
