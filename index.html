@@ -21,6 +21,25 @@
 </head>
 
 <body>
+    <div id="modal" class="w-full fixed inset-0 z-50 mx-auto border-t border-2" style="bottom: 0px;">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-11/12 max-w-md p-6" role="dialog"
+            aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+            <h2 id="modalTitle" class="text-xl font-semibold text-gray-800 dark:text-white">
+                Política de Cookies.
+            </h2>
+            <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mt-2">
+                Usamos solo cookies de funcionalidad necesarias para el correcto funcionamiento del sitio. No
+                utilizamos cookies de seguimiento ni publicidad.
+            </p>
+            <div class="mt-4 flex justify-end gap-2">
+                <button id="closeModal"
+                    class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
     <main class="overflow-x-hidden">
         <section class="bg-image object-cover">
             <div class="bg-gradient-to-r from-gray-900 to-[#1d1d1d87]">
@@ -97,7 +116,8 @@
                     <article class="bg-white shadow-md p-6 text-center fade-up">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Plan Básico</h3>
                         <p class="text-gray-600 mb-4">
-                            Publicación de una web estática para dar a conocer tu negocio. Ideal como carta de presentación para tus clientes.
+                            Publicación de una web estática para dar a conocer tu negocio. Ideal como carta de
+                            presentación para tus clientes.
                         </p>
                         <div class="text-center">
                             <span class="text-4xl font-bold text-blue-800">$19/mes</span>
@@ -212,12 +232,12 @@
             <div class="container mx-auto">
                 <article class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800 mb-4">Explora nuestros proyectos</h2>
-                    <p class="text-lg text-gray-400">Conoce webs de clientes satisfechos.</p>
+                    <p class="text-lg text-gray-600">Conoce webs de clientes satisfechos.</p>
                 </article>
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div class="md:mb-12 mb-10 md:px-4 px-0">
                         <div class="card card-center img-hover group">
-                            <img class="card-image" src="./public/img/benijo.webp" alt="Benijo suite">
+                            <img class="card-image" src="./public/img/phpapp.PNG" alt="Benijo suite">
                             <a href="#" class="btn btn-primary btn-overlay">
                                 Ver website
                             </a>
@@ -248,12 +268,15 @@
                     </div>
                     <div class="p-3 text-white">
                         <p>
-                            Te asesoramos para que conozcas las subvenciones disponibles tanto a nivel local como estatal sin coste alguno.                             
+                            Te asesoramos para que conozcas las subvenciones disponibles tanto a nivel local como
+                            estatal sin coste alguno.
                         </p>
                     </div>
                     <div class="p-3 text-white">
                         <p>
-                            Ofrecemos un servicio personalizado para ayudarte a preparar y presentar tu solicitud de forma óptima, asegurándonos de cumplir con todos los requisitos para maximizar tus posibilidades de éxito.
+                            Ofrecemos un servicio personalizado para ayudarte a preparar y presentar tu solicitud de
+                            forma óptima, asegurándonos de cumplir con todos los requisitos para maximizar tus
+                            posibilidades de éxito.
                         </p>
                     </div>
                 </div>
@@ -327,11 +350,11 @@
                 const end = parseInt(item.getAttribute('data-counter'));
                 const stepTime = Math.abs(Math.floor(duration / end));
                 let current = start;
-    
+
                 const timer = setInterval(() => {
                     current++;
                     item.textContent = current;
-    
+
                     if (current === end) {
                         clearInterval(timer);
                     }
@@ -354,7 +377,6 @@
 
         window.addEventListener('scroll', handleScroll);
     </script>
-
     <script>
         const images = document.querySelectorAll('.fade-in-out');
         let currentIndex = 0;
@@ -391,6 +413,25 @@
 
         window.addEventListener('load', checkVisibility);
         window.addEventListener('scroll', checkVisibility);
+    </script>
+    <script>
+        const modal = document.getElementById('modal');
+        const closeBtn = document.getElementById('closeModal');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            modal.classList.remove('hidden');
+            closeBtn.focus();
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                modal.classList.add('hidden');
+            }
+        });
     </script>
 </body>
 
