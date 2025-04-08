@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build-css": "npx postcss ./public/css/app.css --use cssnano --output ./public/css/app.min.css",
+    "build:css": "npx postcss ./public/css/app.css --use cssnano --output ./public/css/app.min.css",
     "tail-build": "npx @tailwindcss/cli -i ./resources/input.css -o ./public/css/app.css --watch",
     "dev": "vite",
     "build": "vite build",
