@@ -1,6 +1,3 @@
-/*import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';*/
-
 class UIManager {
     constructor(config) {
         if (UIManager.instance) {
@@ -50,7 +47,7 @@ class UIManager {
             console.log('clicked');
         })
     }
-    static accordionHandler() {
+    accordionHandler() {
         document.querySelectorAll('button[data-accordion]').forEach(item => {
             item.addEventListener('click', () => {
                 const content = document.getElementById(item.getAttribute('data-accordion'));
@@ -136,99 +133,65 @@ class CookieModal extends Modal {
 
 }
 class CountUp {
-    constructor(elemento, valorFinal, opciones = {}) {
-        this.elemento = elemento;
-        this.valorFinal = valorFinal;
-        this.opciones = {
-            duration: opciones.duration || 2,
-            separator: opciones.separator || ',',
-            decimal: opciones.decimal || '.',
-            startVal: opciones.startVal || 0,
-            decimals: opciones.decimals || 0,
-            callback: opciones.callback || null,
-        };
-        this.valorActual = this.opciones.startVal;
-        this.frameRate = 30;
-        this.totalFrames = this.opciones.duration * this.frameRate;
-        this.frame = 0;
+    constructor(duration) {
+        this.duration = duration;
+        this.counted = false;
     }
-
-    static initDefault() {
-        const elementoContador = document.getElementById('miContador');
-
-        const opciones = {
-            duration: 2,
-            separator: ',',
-            decimal: '.',
-        };
-
-        const miContador = new CountUp(elementoContador, 1000, opciones);
-
-        miContador.start();
-    }
-
-    start() {
-        this.animar();
-    }
-
-    animar() {
-        if (this.frame < this.totalFrames) {
-            this.frame++;
-            const progreso = this.frame / this.totalFrames;
-            this.valorActual = this.opciones.startVal + (this.valorFinal - this.opciones.startVal) * progreso;
-            this.actualizarValor();
-            setTimeout(() => this.animar(), 1000 / this.frameRate);
-        } else {
-            this.valorActual = this.valorFinal;
-            this.actualizarValor();
-            if (this.opciones.callback) {
-                this.opciones.callback();
+    static init(duration = 2000) {
+        window.addEventListener('scroll', () => {
+            const counter = new CountUp(duration);
+            const counterElement = document.getElementById('counter-container');
+    
+            if (counter.isElementInViewport(counterElement) && !this.counted) {
+                this.counted = true;
+                counter.countUp();
             }
-        }
-    }
-
-    actualizarValor() {
-        let valorFormateado = this.valorActual.toLocaleString(undefined, {
-            minimumFractionDigits: this.opciones.decimals,
-            maximumFractionDigits: this.opciones.decimals,
         });
+    }
+    countUp() {
+        document.querySelectorAll('.counter').forEach(item => {
+            const start = 0;
+            const end = parseInt(item.getAttribute('data-counter'));
+            const stepTime = Math.abs(Math.floor(this.duration / end));
+            let current = start;
 
-        if (this.opciones.separator !== ',') {
-            valorFormateado = valorFormateado.replace(/,/g, this.opciones.separator);
-        }
-        if (this.opciones.decimal !== '.') {
-            valorFormateado = valorFormateado.replace(/\./g, this.opciones.decimal);
-        }
+            const timer = setInterval(() => {
+                current++;
+                item.textContent = current;
 
-        this.elemento.textContent = valorFormateado;
+                if (current === end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        });
+    }
+    isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= window.innerHeight;
     }
 }
 
 function init() {
     document.documentElement.classList.toggle('dark');
-    UIManager.accordionHandler();
+    
+    const btn = document.getElementById('hs-basic-usage');
+    
+    btn.addEventListener('click', () => {
+        console.log(btn)
+        
+    });
+
+    CountUp.init(2000);
+
     try {
         if (document.getElementById('miModal')) {
             const miModal = new CookieModal('miModal');
             miModal.init();
         }
 
-        const uiManager = new UIManager(['navbarToggler', 'menuHandler']);
+        const uiManager = new UIManager(['navbarToggler', 'menuHandler', 'accordionHandler']);
         uiManager.init();
 
-        if (document.getElementById('mySwiper')) {
-            const swiper = new Swiper('#mySwiper', {
-                loop: true,
-                speed: 5000,
-                autoplay: {
-                    delay: 0,
-                    disableOnInteraction: false,
-                },
-                slidesPerView: 4,
-                spaceBetween: 10,
-                allowTouchMove: true
-            });
-        }
     } catch (error) {
         console.log(error);
     }

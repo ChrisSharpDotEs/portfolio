@@ -12,18 +12,18 @@
     <title>Mi portfolio</title>
     <link rel="shortcut icon" href="./public/icons/sunflower.svg" type="image/x-icon">
     <link rel="stylesheet" href="./public/css/app.min.css">
-    <script src="./resources/index.js" type="module"></script>
+    <script src="./public/js/index.min.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MSG93ER6C0"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+        /*window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-MSG93ER6C0');
+        gtag('config', 'G-MSG93ER6C0');*/
     </script>
 
 </head>
@@ -32,13 +32,33 @@
     <div id="modal" class="w-full fixed inset-0 z-50 mx-auto border-t border-2">
         <div class="bg-white dark:bg-gray-800 shadow-xl w-full p-6 absolute" role="dialog" aria-modal="true"
             aria-labelledby="modalTitle" aria-describedby="modalDesc" style="bottom: 0px;">
-            <h2 id="modalTitle" class="text-xl font-semibold text-gray-800 dark:text-white">
+            <h2 id="modalTitle" class="text-2xl font-semibold text-gray-800 dark:text-white">
                 Política de Cookies.
             </h2>
-            <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mt-2">
+            <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mt-2 mb-4">
                 Usamos solo cookies de funcionalidad necesarias para el correcto funcionamiento del sitio. No
                 utilizamos cookies de seguimiento ni publicidad.
             </p>
+            <div class="my-2">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Google Analytics</h2>
+                <div class="grid grid-cols-4">
+                    <p class="text-gray-600 dark:text-gray-300 mt-2 col-span-3">
+                        Usamos Google Analytics, una herramienta de Google que nos ayuda a entender cómo la gente
+                        utiliza nuestra página web. Esto nos permite ver qué páginas son las más populares, cuánto tiempo se
+                        quedan los usuarios y cómo llegaron a nuestra web. 
+                        Por defecto no usamos esta cookie aunque puede habilitarla si lo desea.
+                    </p>
+                    <div class="text-end">
+                        <label for="hs-basic-usage" class="relative inline-block w-11 h-6 cursor-pointer">
+                            <input type="checkbox" id="hs-basic-usage" class="peer sr-only">
+                            <span
+                                class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-600 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+                            <span
+                                class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
             <div class="mt-4 flex justify-end gap-2">
                 <button id="closeModal"
                     class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500">
@@ -244,8 +264,8 @@
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div class="md:mb-12 mb-10 md:px-4 px-0">
                         <div class="card card-center img-hover group">
-                            <img class="card-image" src="./public/img/phpapp.PNG" alt="Benijo suite">
-                            <a href="https://miapp-j0re.onrender.com/" class="btn btn-primary btn-overlay"
+                            <img class="card-image" src="./public/img/dashboard.PNG" alt="Benijo suite">
+                            <a href="./game.html" class="btn btn-primary btn-overlay"
                                 target="_blank">
                                 Ver website
                             </a>
@@ -348,44 +368,10 @@
                 </div>
             </div>
             <div class="mt-8 border-t border-gray-700 pt-6 text-center">
-                <p class="text-gray-400">&copy; 2025 Tu Compañía. Todos los derechos reservados.</p>
+                <p class="text-gray-400">&copy; 2025 Mi sitio. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-    <script>
-        function countUp(duration) {
-            document.querySelectorAll('.counter').forEach(item => {
-                const start = 0;
-                const end = parseInt(item.getAttribute('data-counter'));
-                const stepTime = Math.abs(Math.floor(duration / end));
-                let current = start;
-
-                const timer = setInterval(() => {
-                    current++;
-                    item.textContent = current;
-
-                    if (current === end) {
-                        clearInterval(timer);
-                    }
-                }, stepTime);
-            });
-        }
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return rect.top >= 0 && rect.bottom <= window.innerHeight;
-        }
-
-        let counted = false;
-        function handleScroll() {
-            const counterElement = document.getElementById('counter-container');
-            if (isElementInViewport(counterElement) && !counted) {
-                counted = true;
-                countUp(2000);
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
-    </script>
     <script>
         const images = document.querySelectorAll('.fade-in-out');
         let currentIndex = 0;

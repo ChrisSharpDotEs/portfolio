@@ -11,7 +11,7 @@
     <meta property="og:image" content="">
     <title>Mi portfolio</title>
     <link rel="shortcut icon" href="./public/icons/sunflower.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./public/css/app.css">
+    <link rel="stylesheet" href="./public/css/app.min.css">
     <script src="./public/js/accordion.js" type="module"></script>
     <script src="./public/js/index.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,7 +93,7 @@
         <aside class="md:block hidden col-span-2">
             <div class="text-white flex flex-col h-screen shadow-md">
                 <div class="p-4">
-                    <h2 class="text-xl font-semibold">Dashboard</h2>
+                    <a href="./index.html"><h2 class="text-xl font-semibold">Volver</h2></a>
                 </div>
                 <nav class="flex-grow p-4">
                     <ul id="example" class="space-y-2">
@@ -165,7 +165,7 @@
                     <div id="home" class="p-4" data-vue="content">
                         <div class="grid md:grid-cols-3 grid-cols-1 gap-2 mb-3">
                             <div class="rounded p-4 bg-[#171717] text-gray-200">
-                                <div class="flex justify-between gap-3">
+                                <div class="flex xl:flex-row lg:flex-col md:flex-col sm:flex-row justify-between gap-3">
                                     <div class="flex flex-col gap-2">
                                         <div class="flex gap-2">
                                             <img class="rounded-full" src="./public/img/benijo.webp" alt=""
@@ -199,7 +199,7 @@
                                 </div>
                             </div>
                             <div class="rounded p-4 bg-[#171717] text-gray-200">
-                                <div class="flex justify-between gap-3">
+                                <div class="flex xl:flex-row lg:flex-col md:flex-col sm:flex-row justify-between gap-3">
                                     <div class="flex flex-col gap-2">
                                         <div class="flex gap-2">
                                             <img class="rounded-full" src="./public/img/benijo.webp" alt=""
@@ -233,7 +233,7 @@
                                 </div>
                             </div>
                             <div class="rounded p-4 bg-[#171717] text-gray-200">
-                                <div class="flex justify-between gap-3">
+                                <div class="flex xl:flex-row lg:flex-col md:flex-col sm:flex-row justify-between gap-3">
                                     <div class="flex flex-col gap-2">
                                         <div class="flex gap-2">
                                             <img class="rounded-full" src="./public/img/benijo.webp" alt=""
@@ -356,74 +356,6 @@
             </div>
         </main>
     </div>
-    <script>
-        console.log('loaded')
-        var app = new Vue({
-            el: '#example',
-            data: {
-                name: 'Vue.js'
-            },
-            methods: {
-                toggle: function (el) {
-                    console.log('click')
-                    document.querySelectorAll('div[data-vue="content"]').forEach(item => {
-                        item.classList.add('hidden');
-                    });
-                    document.getElementById(el).classList.remove('hidden');
-                }
-            }
-        })
-    </script>
-    <script>
-        // Obtén el contexto del elemento <canvas> donde se renderizará la gráfica
-        const ctx = document.getElementById('gananciasMensuales').getContext('2d');
-
-        // Datos de ejemplo de ganancias por mes (reemplaza con tus datos reales)
-        const gananciasPorMes = {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-            datasets: [{
-                label: 'Ganancias ($)',
-                data: [1500, 1800, 1200, 2000, 2200, 1900, 2500, 2100, 1600, 2300, 2600, 2400],
-                borderColor: 'rgb(75, 192, 192)', // Color de la línea
-                tension: 0.1 // Curvatura de la línea (0 para línea recta)
-            }]
-        };
-
-        // Crea la gráfica lineal
-        const gananciasChart = new Chart(ctx, {
-            type: 'line',
-            data: gananciasPorMes,
-            options: {
-                responsive: true, // Permite que la gráfica se ajuste al tamaño del contenedor
-                scales: {
-                    y: {
-                        beginAtZero: true, // Comienza el eje Y en 0
-                        ticks: {
-                            callback: function (value, index, values) {
-                                return '$' + value; // Formatea los valores del eje Y con el símbolo $
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: true, // Muestra la leyenda (en este caso, 'Ganancias ($)')
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                let label = context.dataset.label || '';
-                                if (context.parsed.y !== null) {
-                                    label += ': $' + context.parsed.y;
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>
