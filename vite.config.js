@@ -9,12 +9,10 @@ export default defineConfig({
       },
       output: {
         entryFileNames: 'index.min.js',
-      },
+        dir: resolve(__dirname, 'public/js')
+      }
     },
-    outDir: 'public/js',
     emptyOutDir: false,
-    assetsDir: '',
-    cssCodeSplit: false,
     sourcemap: false,
-  },
+  }
 });

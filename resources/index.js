@@ -141,7 +141,7 @@ class CountUp {
         window.addEventListener('scroll', () => {
             const counter = new CountUp(duration);
             const counterElement = document.getElementById('counter-container');
-    
+
             if (counter.isElementInViewport(counterElement) && !this.counted) {
                 this.counted = true;
                 counter.countUp();
@@ -170,16 +170,31 @@ class CountUp {
         return rect.top >= 0 && rect.bottom <= window.innerHeight;
     }
 }
+class Animate {
+    constructor() {
+        this.fadeUpElements = document.querySelectorAll('.fade-up');
+    }
+    checkVisibility() {
+        this.fadeUpElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementTop < windowHeight * 0.75 && !element.classList.contains('active')) {
+                element.classList.add('active');
+            }
+        });
+    }
+    init() {
+        this.checkVisibility();
+        window.addEventListener('scroll', () => this.checkVisibility());
+    }
+}
+
 
 function init() {
     document.documentElement.classList.toggle('dark');
-    
-    const btn = document.getElementById('hs-basic-usage');
-    
-    btn.addEventListener('click', () => {
-        console.log(btn)
-        
-    });
+
+    new Animate().init();
 
     CountUp.init(2000);
 
@@ -192,6 +207,73 @@ function init() {
         const uiManager = new UIManager(['navbarToggler', 'menuHandler', 'accordionHandler']);
         uiManager.init();
 
+    } catch (error) {
+        console.log(error);
+    }
+
+    const gananciasPorMes = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        datasets: [{
+            label: 'Ganancias ($)',
+            data: [1500, 1800, 1200, 2000, 2200, 1900, 2500, 2100, 1600, 2300, 2600, 2400],
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    };
+    try {
+        const gananciasChart = new Chart(ctx, {
+            type: 'line',
+            data: gananciasPorMes,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return '$' + value;
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+                                if (context.parsed.y !== null) {
+                                    label += ': $' + context.parsed.y;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
+    try {
+        var app = new Vue({
+            el: '#example',
+            data: {
+                name: 'Vue.js'
+            },
+            methods: {
+                toggle: function (el) {
+                    console.log('click')
+                    document.querySelectorAll('div[data-vue="content"]').forEach(item => {
+                        item.classList.add('hidden');
+                    });
+                    document.getElementById(el).classList.remove('hidden');
+                }
+            }
+        });
     } catch (error) {
         console.log(error);
     }

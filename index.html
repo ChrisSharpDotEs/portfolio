@@ -44,8 +44,9 @@
                 <div class="grid grid-cols-4">
                     <p class="text-gray-600 dark:text-gray-300 mt-2 col-span-3">
                         Usamos Google Analytics, una herramienta de Google que nos ayuda a entender cómo la gente
-                        utiliza nuestra página web. Esto nos permite ver qué páginas son las más populares, cuánto tiempo se
-                        quedan los usuarios y cómo llegaron a nuestra web. 
+                        utiliza nuestra página web. Esto nos permite ver qué páginas son las más populares, cuánto
+                        tiempo se
+                        quedan los usuarios y cómo llegaron a nuestra web.
                         Por defecto no usamos esta cookie aunque puede habilitarla si lo desea.
                     </p>
                     <div class="text-end">
@@ -265,8 +266,7 @@
                     <div class="md:mb-12 mb-10 md:px-4 px-0">
                         <div class="card card-center img-hover group">
                             <img class="card-image" src="./public/img/dashboard.PNG" alt="Benijo suite">
-                            <a href="./game.html" class="btn btn-primary btn-overlay"
-                                target="_blank">
+                            <a href="./game.html" class="btn btn-primary btn-overlay" target="_blank">
                                 Ver website
                             </a>
                         </div>
@@ -372,43 +372,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        const images = document.querySelectorAll('.fade-in-out');
-        let currentIndex = 0;
-
-        function showImage(index) {
-            images.forEach((img, i) => {
-                if (i === index) {
-                    img.classList.add('active');
-                } else {
-                    img.classList.remove('active');
-                }
-            });
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            showImage(currentIndex);
-        }
-
-        setInterval(nextImage, 5000);
-
-        const fadeUpElements = document.querySelectorAll('.fade-up');
-
-        function checkVisibility() {
-            fadeUpElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (elementTop < windowHeight * 0.75 && !element.classList.contains('active')) {
-                    element.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('load', checkVisibility);
-        window.addEventListener('scroll', checkVisibility);
-    </script>
     <script>
         const modal = document.getElementById('modal');
         const closeBtn = document.getElementById('closeModal');
