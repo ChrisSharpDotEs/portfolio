@@ -1,8 +1,11 @@
 @import "tailwindcss";
-@import 'swiper/css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf');
+}
 
 * {
     font-family: "Montserrat", sans-serif;

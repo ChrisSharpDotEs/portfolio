@@ -11,12 +11,7 @@
     <meta property="og:image" content="">
     <title>Mi portfolio</title>
     <link rel="shortcut icon" href="./public/icons/sunflower.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./public/css/app.min.css">
-    <script src="./public/js/index.min.js" type="module"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="./public/css/app.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MSG93ER6C0"></script>
     <script>
         /*window.dataLayer = window.dataLayer || [];
@@ -25,47 +20,60 @@
 
         gtag('config', 'G-MSG93ER6C0');*/
     </script>
-
+    <script src="./resources/index.js" type="module"></script>
 </head>
 
 <body>
-    <div id="modal" class="w-full fixed inset-0 z-50 mx-auto border-t border-2">
-        <div class="bg-white dark:bg-gray-800 shadow-xl w-full p-6 absolute" role="dialog" aria-modal="true"
+    <div id="modal" class="w-full fixed inset-0 z-50 mx-auto hidden">
+        <div class="bg-white dark:bg-gray-900 shadow-xl w-full p-6 absolute border-t border-gray-200" role="dialog" aria-modal="true"
             aria-labelledby="modalTitle" aria-describedby="modalDesc" style="bottom: 0px;">
-            <h2 id="modalTitle" class="text-2xl font-semibold text-gray-800 dark:text-white">
-                Política de Cookies.
-            </h2>
-            <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mt-2 mb-4">
-                Usamos solo cookies de funcionalidad necesarias para el correcto funcionamiento del sitio. No
-                utilizamos cookies de seguimiento ni publicidad.
-            </p>
-            <div class="my-2">
-                <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Google Analytics</h2>
-                <div class="grid grid-cols-4">
-                    <p class="text-gray-600 dark:text-gray-300 mt-2 col-span-3">
-                        Usamos Google Analytics, una herramienta de Google que nos ayuda a entender cómo la gente
-                        utiliza nuestra página web. Esto nos permite ver qué páginas son las más populares, cuánto
-                        tiempo se
-                        quedan los usuarios y cómo llegaron a nuestra web.
-                        Por defecto no usamos esta cookie aunque puede habilitarla si lo desea.
-                    </p>
-                    <div class="text-end">
-                        <label for="hs-basic-usage" class="relative inline-block w-11 h-6 cursor-pointer">
-                            <input type="checkbox" id="hs-basic-usage" class="peer sr-only">
-                            <span
-                                class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-600 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
-                            <span
-                                class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white"></span>
-                        </label>
+            <form id="cookie-modal" action="#">
+                <h2 id="modalTitle" class="text-2xl font-semibold text-gray-800 dark:text-white">
+                    Política de Cookies.
+                </h2>
+                <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mt-2 mb-4">
+                    Usamos solo cookies de funcionalidad necesarias para el correcto funcionamiento del sitio. No
+                    utilizamos cookies de seguimiento ni publicidad.
+                </p>
+                <div class="hidden my-2">
+                    <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Google Analytics</h2>
+                    <div class="grid grid-cols-4">
+                        <p class="text-gray-600 dark:text-gray-300 mt-2 col-span-3">
+                            Usamos Google Analytics, una herramienta de Google que nos ayuda a entender cómo la gente
+                            utiliza nuestra página web. Esto nos permite ver qué páginas son las más populares, cuánto
+                            tiempo se
+                            quedan los usuarios y cómo llegaron a nuestra web.
+                            Por defecto no usamos esta cookie aunque puede habilitarla si lo desea.
+                        </p>
+                        <div class="text-end">
+                            <label for="hs-basic-usage" class="relative inline-block w-11 h-6 cursor-pointer">
+                                <input type="checkbox" id="hs-basic-usage" class="peer sr-only">
+                                <span
+                                    class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-600 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+                                <span
+                                    class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="mt-4 flex justify-end gap-2">
-                <button id="closeModal"
-                    class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500">
-                    Cerrar
-                </button>
-            </div>
+                <div class="mt-4 flex justify-end gap-2">
+                    <button
+                        class="hidden px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500"
+                        data-modal="all">
+                        Aceptar todas
+                    </button>
+                    <button
+                        class="hidden px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500"
+                        data-modal="necesary">
+                        Sólo necesarias
+                    </button>
+                    <button
+                        class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500"
+                        data-modal="close">
+                        Cerrar
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
     <main class="overflow-x-hidden">
@@ -129,7 +137,7 @@
                     </p>
                 </article>
                 <div class="flex justify-center items-center">
-                    <img src="https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    <img src="./public/img/china_desktop.webp"
                         class="rounded-lg object-contain">
                 </div>
             </div>
@@ -260,7 +268,7 @@
             <div class="container mx-auto">
                 <article class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800 mb-4">Explora nuestros proyectos</h2>
-                    <p class="text-lg text-gray-600">Conoce webs de clientes satisfechos.</p>
+                    <p class="text-lg text-gray-600">Conoce algunas de nuestras webs.</p>
                 </article>
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div class="md:mb-12 mb-10 md:px-4 px-0">
@@ -335,7 +343,6 @@
                         <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
                     </ul>
                 </div>
-                <!-- Sección 2 -->
                 <div>
                     <h2 class="font-bold text-lg mb-4">Soporte</h2>
                     <ul>
@@ -344,7 +351,6 @@
                         <li><a href="#" class="text-gray-400 hover:text-white">Términos y condiciones</a></li>
                     </ul>
                 </div>
-                <!-- Sección 3 -->
                 <div>
                     <h2 class="font-bold text-lg mb-4">Productos</h2>
                     <ul>
@@ -353,7 +359,6 @@
                         <li><a href="#" class="text-gray-400 hover:text-white">Integraciones</a></li>
                     </ul>
                 </div>
-                <!-- Sección 4 -->
                 <div>
                     <h2 class="font-bold text-lg mb-4">Suscríbete</h2>
                     <p class="text-gray-400 mb-4">Recibe las últimas novedades directamente en tu correo.</p>
@@ -372,25 +377,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        const modal = document.getElementById('modal');
-        const closeBtn = document.getElementById('closeModal');
-
-        window.addEventListener('DOMContentLoaded', () => {
-            modal.classList.remove('hidden');
-            closeBtn.focus();
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                modal.classList.add('hidden');
-            }
-        });
-    </script>
 </body>
 
 </html>

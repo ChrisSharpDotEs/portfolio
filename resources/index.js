@@ -69,10 +69,8 @@ class Modal {
         this.modal = document.getElementById(modalId);
 
         if (this.modal) {
-            this.cerrarModalBtn = this.modal.querySelector('button[data-modal="close"');
-            this.abrirModal = this.abrirModal.bind(this);
+            this.cerrarModalBtn = this.modal.querySelector('button[data-modal="close"]');
             this.cerrarModal = this.cerrarModal.bind(this);
-            this.manejarClicFueraModal = this.manejarClicFueraModal.bind(this);
         } else {
             throw Error("No se encuentra el modal.");
         }
@@ -88,7 +86,6 @@ class Modal {
     }
     handleEvents() {
         this.cerrarModalBtn.addEventListener('click', this.cerrarModal);
-        window.addEventListener('click', this.manejarClicFueraModal);
     }
     abrirModal() {
         this.modal.classList.remove('hidden');
@@ -105,19 +102,31 @@ class Modal {
 class CookieModal extends Modal {
     constructor(modalId) {
         super(modalId);
+        this.form = document.getElementById('cookie-modal');
+        if (!document.cookie.includes('accepted-cookies')) {
+            this.initOnLoad();
+        }
     }
-    #setCookie() {
+    #setCookie(value) {
         const ahora = new Date();
         ahora.setTime(ahora.getTime() + (1 * 60 * 1000));
         const fechaExpiracion = ahora.toUTCString();
-        document.cookie = `accepted-cookies=false;expires=${fechaExpiracion};path=/;SameSite=Lax;`
+        document.cookie = `accepted-cookies=${value};expires=${fechaExpiracion};path=/;SameSite=Lax;`
     }
     init() {
-        if (!document.cookie.includes('accepted-cookies')) {
-            this.#setCookie();
-            this.initOnLoad();
-        }
-        this.#cookieManager();
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let formdata = new FormData(this.form);
+
+            let value = [{
+                basic: true,
+                ga: false
+            }];
+            this.#setCookie(JSON.stringify(value));
+
+        });
+
     }
     #cookieManager() {
         const tabs = ['tab1-btn', 'tab2-btn', 'tab3-btn'].map(item => document.getElementById(item));
@@ -277,6 +286,24 @@ function init() {
     } catch (error) {
         console.log(error);
     }
+
+    const modal = new CookieModal('modal');
+    modal.init();
+    /* const modal = document.getElementById('modal');
+     const closeBtn = document.getElementById('closeModal');
+ 
+     modal.classList.remove('hidden');
+     closeBtn.focus();
+ 
+     closeBtn.addEventListener('click', () => {
+         modal.classList.add('hidden');
+     });
+ 
+     document.addEventListener('keydown', (e) => {
+         if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+             modal.classList.add('hidden');
+         }
+     });*/
 }
 
 window.addEventListener('load', init);
