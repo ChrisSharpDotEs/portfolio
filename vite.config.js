@@ -9,7 +9,7 @@ export default defineConfig({
       },
       output: {
         entryFileNames: 'index.min.js',
-        dir: resolve(__dirname, 'public/js')
+        dir: resolve(__dirname, 'public')
       }
     },
     emptyOutDir: false,

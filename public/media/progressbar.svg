@@ -1,0 +1,12 @@
+<svg viewBox="0 0 700 380" fill="none" xmlns="http://www.w3.org/2000/svg"
+    id="svg">
+    <path
+        d="M100 350C100 283.696 126.339 220.107 173.223 173.223C220.107 126.339 283.696 100 350 100C416.304 100 479.893 126.339 526.777 173.223C573.661 220.107 600 283.696 600 350"
+        stroke="#2d2d2d" stroke-width="40" stroke-linecap="round" />
+    <path
+        d="M100 350C100 283.696 126.339 220.107 173.223 173.223C220.107 126.339 283.696 100 350 100C416.304 100 479.893 126.339 526.777 173.223C573.661 220.107 600 283.696 600 350"
+        stroke="#2f49d0" stroke-width="40" stroke-linecap="round"
+        stroke-dasharray="785.4" stroke-dashoffset="78.54" id="svgPath"
+        class="svgPath" />
+    <circle cx="587.7641290737884" cy="272.7457514062631" r="16" fill="#fff" />
+</svg>

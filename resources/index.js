@@ -63,6 +63,26 @@ class UIManager {
             });
         });
     }
+    sidebarToggler() {
+        const min = '5rem';
+        const max = '15rem';
+        const sidebar = document.getElementById("sidebar");
+        const toggleButton = document.getElementById("toggleSidebar");
+
+        toggleButton.addEventListener("click", () => {
+            const isExpanded = toggleButton.getAttribute("aria-expanded") === "true";
+            toggleButton.setAttribute("aria-expanded", !isExpanded);
+
+            const size = isExpanded ? min : max;
+            sidebar.style.width = size;
+            document.querySelectorAll("span.ml-2").forEach((el) => {
+                el.classList.toggle("hidden");
+                isExpanded
+                    ? el.classList.replace("md:inline", "md:hidden")
+                    : el.classList.replace("md:hidden", "md:inline");
+            });
+        });
+    };
 }
 class Modal {
     constructor(modalId) {
@@ -147,15 +167,17 @@ class CountUp {
         this.counted = false;
     }
     static init(duration = 2000) {
-        window.addEventListener('scroll', () => {
-            const counter = new CountUp(duration);
-            const counterElement = document.getElementById('counter-container');
+        if (document.getElementById('counter-container')) {
+            window.addEventListener('scroll', () => {
+                const counter = new CountUp(duration);
+                const counterElement = document.getElementById('counter-container');
 
-            if (counter.isElementInViewport(counterElement) && !this.counted) {
-                this.counted = true;
-                counter.countUp();
-            }
-        });
+                if (counter.isElementInViewport(counterElement) && !this.counted) {
+                    this.counted = true;
+                    counter.countUp();
+                }
+            });
+        }
     }
     countUp() {
         document.querySelectorAll('.counter').forEach(item => {
@@ -198,28 +220,28 @@ class Animate {
         window.addEventListener('scroll', () => this.checkVisibility());
     }
 }
-
-
-function init() {
-    document.documentElement.classList.toggle('dark');
-
-    new Animate().init();
-
-    CountUp.init(2000);
-
+function toggleVue() {
     try {
-        if (document.getElementById('miModal')) {
-            const miModal = new CookieModal('miModal');
-            miModal.init();
-        }
-
-        const uiManager = new UIManager(['navbarToggler', 'menuHandler', 'accordionHandler']);
-        uiManager.init();
-
+        var app = new Vue({
+            el: '#example',
+            data: {
+                name: 'Vue.js'
+            },
+            methods: {
+                toggle: function (el) {
+                    console.log('click')
+                    document.querySelectorAll('div[data-vue="content"]').forEach(item => {
+                        item.classList.add('hidden');
+                    });
+                    document.getElementById(el).classList.remove('hidden');
+                }
+            }
+        });
     } catch (error) {
         console.log(error);
     }
-
+}
+function addchart() {
     const gananciasPorMes = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         datasets: [{
@@ -266,44 +288,28 @@ function init() {
     } catch (error) {
         console.log(error);
     }
+}
+
+
+function init() {
+    document.documentElement.classList.toggle('dark');
+
+    new Animate().init();
+
+    CountUp.init(2000);
 
     try {
-        var app = new Vue({
-            el: '#example',
-            data: {
-                name: 'Vue.js'
-            },
-            methods: {
-                toggle: function (el) {
-                    console.log('click')
-                    document.querySelectorAll('div[data-vue="content"]').forEach(item => {
-                        item.classList.add('hidden');
-                    });
-                    document.getElementById(el).classList.remove('hidden');
-                }
-            }
-        });
+        if (document.getElementById('miModal')) {
+            const miModal = new CookieModal('miModal');
+            miModal.init();
+        }
+
+        const uiManager = new UIManager(['navbarToggler', 'menuHandler', 'accordionHandler', 'sidebarToggler']);
+        uiManager.init();
+
     } catch (error) {
         console.log(error);
     }
-
-    const modal = new CookieModal('modal');
-    modal.init();
-    /* const modal = document.getElementById('modal');
-     const closeBtn = document.getElementById('closeModal');
- 
-     modal.classList.remove('hidden');
-     closeBtn.focus();
- 
-     closeBtn.addEventListener('click', () => {
-         modal.classList.add('hidden');
-     });
- 
-     document.addEventListener('keydown', (e) => {
-         if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-             modal.classList.add('hidden');
-         }
-     });*/
 }
 
 window.addEventListener('load', init);
