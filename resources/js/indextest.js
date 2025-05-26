@@ -116,3 +116,12 @@ window.addEventListener('load', () => {
         }
     });
 });
+/*
+<!--script async src="https://www.googletagmanager.com/gtag/js?id=G-MSG93ER6C0"></script-->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+
+gtag('config', 'G-MSG93ER6C0');
+</script>*/

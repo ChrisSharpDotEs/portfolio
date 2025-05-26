@@ -1,3 +1,5 @@
+import { LitModal } from "./js/Modal.js";
+
 class UIManager {
     constructor(config) {
         if (UIManager.instance) {
@@ -69,19 +71,21 @@ class UIManager {
         const sidebar = document.getElementById("sidebar");
         const toggleButton = document.getElementById("toggleSidebar");
 
-        toggleButton.addEventListener("click", () => {
-            const isExpanded = toggleButton.getAttribute("aria-expanded") === "true";
-            toggleButton.setAttribute("aria-expanded", !isExpanded);
+        if (toggleButton) {
+            toggleButton.addEventListener("click", () => {
+                const isExpanded = toggleButton.getAttribute("aria-expanded") === "true";
+                toggleButton.setAttribute("aria-expanded", !isExpanded);
 
-            const size = isExpanded ? min : max;
-            sidebar.style.width = size;
-            document.querySelectorAll("span.ml-2").forEach((el) => {
-                el.classList.toggle("hidden");
-                isExpanded
-                    ? el.classList.replace("md:inline", "md:hidden")
-                    : el.classList.replace("md:hidden", "md:inline");
+                const size = isExpanded ? min : max;
+                sidebar.style.width = size;
+                document.querySelectorAll("span.ml-2").forEach((el) => {
+                    el.classList.toggle("hidden");
+                    isExpanded
+                        ? el.classList.replace("md:inline", "md:hidden")
+                        : el.classList.replace("md:hidden", "md:inline");
+                });
             });
-        });
+        }
     };
 }
 class Modal {
@@ -299,13 +303,15 @@ function init() {
     CountUp.init(2000);
 
     try {
-        if (document.getElementById('miModal')) {
-            const miModal = new CookieModal('miModal');
+        if (document.getElementById('modal')) {
+            const miModal = new CookieModal('modal');
             miModal.init();
         }
 
         const uiManager = new UIManager(['navbarToggler', 'menuHandler', 'accordionHandler', 'sidebarToggler']);
         uiManager.init();
+
+        customElements.define('lit-modal', LitModal);
 
     } catch (error) {
         console.log(error);

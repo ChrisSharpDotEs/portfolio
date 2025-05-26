@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
@@ -12,15 +12,7 @@
     <title>Mi portfolio</title>
     <link rel="shortcut icon" href="./public/icons/sunflower.svg" type="image/x-icon">
     <link rel="stylesheet" href="./public/css/app.min.css">
-    <!--script async src="https://www.googletagmanager.com/gtag/js?id=G-MSG93ER6C0"></script-->
-    <script>
-        /*window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-MSG93ER6C0');*/
-    </script>
-    <script src="./public/js/index.min.js" type="module"></script>
+    <script src="public/js/index.min.js" type="module"></script>
 </head>
 
 <body>
@@ -87,9 +79,9 @@
                                 Sitio</a>
                             <div class="hidden md:flex space-x-6">
                                 <a href="#" class="navbar-item hover:text-gray-300">Inicio</a>
-                                <a href="#" class="navbar-item hover:text-gray-300">Acerca de</a>
-                                <a href="#" class="navbar-item hover:text-gray-300">Servicios</a>
-                                <a href="#" class="navbar-item hover:text-gray-300">Contacto</a>
+                                <a href="#about" class="navbar-item hover:text-gray-300">Acerca de</a>
+                                <a href="#services" class="navbar-item hover:text-gray-300">Servicios</a>
+                                <a href="#contact" class="navbar-item hover:text-gray-300">Contacto</a>
                             </div>
                             <div class="md:hidden">
                                 <button class="focus:outline-none menu-button" aria-label="Menú principal"
@@ -104,9 +96,9 @@
                         </div>
                         <ul id="menu1" class="md:hidden max-h-0 mt-2 transition-all duration-500 mobile-menu">
                             <li><a href="#" class="block px-4 py-2 text-sm hover:text-gray-300">Inicio</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-sm hover:text-gray-300">Acerca de</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-sm hover:text-gray-300">Servicios</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-sm hover:text-gray-300">Contacto</a></li>
+                            <li><a href="#about" class="block px-4 py-2 text-sm hover:text-gray-300">Acerca de</a></li>
+                            <li><a href="#services" class="block px-4 py-2 text-sm hover:text-gray-300">Servicios</a></li>
+                            <li><a href="#contact" class="block px-4 py-2 text-sm hover:text-gray-300">Contacto</a></li>
                         </ul>
                     </nav>
                 </header>
@@ -123,7 +115,7 @@
                 </div>
             </div>
         </section>
-        <section class="px-16 md:py-32 py-12 bg-gray-100">
+        <section id="about" class="px-16 md:py-32 py-12 bg-gray-100">
             <div class="grid  grid-cols-1 md:grid-cols-2 gap-8">
                 <article class="flex flex-col justify-center md:pr-8">
                     <h2 class="text-6xl text-gray-900 mb-6">
@@ -142,7 +134,7 @@
                 </div>
             </div>
         </section>
-        <section class="py-12 px-4 bg-gray-800">
+        <section id="services" class="py-12 px-4 bg-gray-800">
             <div class="container mx-auto py-12 px-4">
                 <article class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-200 mb-4">Conoce nuestros precios</h2>
@@ -273,7 +265,7 @@
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div class="md:mb-12 mb-10 md:px-4 px-0">
                         <div class="card card-center img-hover group">
-                            <img class="card-image" src="./public/img/dashboard.PNG" alt="Benijo suite">
+                            <img class="card-image" src="./public/img/dashboard.webp" alt="Benijo suite">
                             <a href="./dashboard.html" class="btn btn-primary btn-overlay" target="_blank">
                                 Ver website
                             </a>
@@ -281,8 +273,17 @@
                     </div>
                     <div class=" md:mb-12 mb-10 md:px-4 px-0">
                         <div class="card card-center img-hover group">
-                            <img class="card-image" src="./public/img/webflow.PNG" alt="Benijo suite">
+                            <img class="card-image" src="./public/img/webflow.webp" alt="Benijo suite">
                             <a href="https://plantilla-restaurantes.webflow.io/" target="_blank"
+                                class="btn btn-primary btn-overlay">
+                                Ver website
+                            </a>
+                        </div>
+                    </div>
+                    <div class=" md:mb-12 mb-10 md:px-4 px-0">
+                        <div class="card card-center img-hover group">
+                            <img class="card-image" src="./public/img/office.webp" alt="modal example">
+                            <a href="./modal.html" target="_blank"
                                 class="btn btn-primary btn-overlay">
                                 Ver website
                             </a>
@@ -333,7 +334,7 @@
         </section>
     </main>
     <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="contact" class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <h2 class="font-bold text-lg mb-4">Compañía</h2>

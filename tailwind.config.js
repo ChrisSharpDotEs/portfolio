@@ -1,7 +1,14 @@
 module.exports = {
-    content: ["./public/**/*.{html,js}", "./*.{html}", './component.html'],
+    content: [
+        './public/**/*.{html,js}', 
+        './*.{html}', 
+        './component.html', 
+        './resources/**/*.{js,ts}',
+    ],
     theme: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        tailwindcss()
+    ],
 };
