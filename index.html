@@ -12,62 +12,19 @@
     <title>Mi portfolio</title>
     <link rel="shortcut icon" href="./public/icons/sunflower.svg" type="image/x-icon">
     <link rel="stylesheet" href="./public/css/app.min.css">
-    <script src="public/js/index.min.js" type="module"></script>
+    <!--script src="public/js/index.min.js" type="module"></script-->
+    <script src="resources/index.js" type="module"></script>
+    <style>
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div id="modal" class="w-full fixed inset-0 z-50 mx-auto hidden">
-        <div class="bg-white dark:bg-gray-900 shadow-xl w-full p-6 absolute border-t border-gray-200" role="dialog" aria-modal="true"
-            aria-labelledby="modalTitle" aria-describedby="modalDesc" style="bottom: 0px;">
-            <form id="cookie-modal" action="#">
-                <h2 id="modalTitle" class="text-2xl font-semibold text-gray-800 dark:text-white">
-                    Política de Cookies.
-                </h2>
-                <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mt-2 mb-4">
-                    Usamos solo cookies de funcionalidad necesarias para el correcto funcionamiento del sitio. No
-                    utilizamos cookies de seguimiento ni publicidad.
-                </p>
-                <div class="hidden my-2">
-                    <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Google Analytics</h2>
-                    <div class="grid grid-cols-4">
-                        <p class="text-gray-600 dark:text-gray-300 mt-2 col-span-3">
-                            Usamos Google Analytics, una herramienta de Google que nos ayuda a entender cómo la gente
-                            utiliza nuestra página web. Esto nos permite ver qué páginas son las más populares, cuánto
-                            tiempo se
-                            quedan los usuarios y cómo llegaron a nuestra web.
-                            Por defecto no usamos esta cookie aunque puede habilitarla si lo desea.
-                        </p>
-                        <div class="text-end">
-                            <label for="hs-basic-usage" class="relative inline-block w-11 h-6 cursor-pointer">
-                                <input type="checkbox" id="hs-basic-usage" class="peer sr-only">
-                                <span
-                                    class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-600 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
-                                <span
-                                    class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-4 flex justify-end gap-2">
-                    <button
-                        class="hidden px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500"
-                        data-modal="all">
-                        Aceptar todas
-                    </button>
-                    <button
-                        class="hidden px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500"
-                        data-modal="necesary">
-                        Sólo necesarias
-                    </button>
-                    <button
-                        class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-500"
-                        data-modal="close">
-                        Cerrar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <lit-modal></lit-modal>
     <main class="overflow-x-hidden">
         <section class="bg-image object-cover">
             <div class="bg-gradient-to-r from-gray-900 to-[#1d1d1d87]">
@@ -97,7 +54,8 @@
                         <ul id="menu1" class="md:hidden max-h-0 mt-2 transition-all duration-500 mobile-menu">
                             <li><a href="#" class="block px-4 py-2 text-sm hover:text-gray-300">Inicio</a></li>
                             <li><a href="#about" class="block px-4 py-2 text-sm hover:text-gray-300">Acerca de</a></li>
-                            <li><a href="#services" class="block px-4 py-2 text-sm hover:text-gray-300">Servicios</a></li>
+                            <li><a href="#services" class="block px-4 py-2 text-sm hover:text-gray-300">Servicios</a>
+                            </li>
                             <li><a href="#contact" class="block px-4 py-2 text-sm hover:text-gray-300">Contacto</a></li>
                         </ul>
                     </nav>
@@ -129,8 +87,7 @@
                     </p>
                 </article>
                 <div class="flex justify-center items-center">
-                    <img src="./public/img/china_desktop.webp"
-                        class="rounded-lg object-contain">
+                    <img src="./public/img/china_desktop.webp" class="rounded-lg object-contain">
                 </div>
             </div>
         </section>
@@ -263,27 +220,10 @@
                     <p class="text-lg text-gray-600">Conoce algunas de nuestras webs.</p>
                 </article>
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
-                    <div class="md:mb-12 mb-10 md:px-4 px-0">
-                        <div class="card card-center img-hover group">
-                            <img class="card-image" src="./public/img/dashboard.webp" alt="Benijo suite">
-                            <a href="./dashboard.html" class="btn btn-primary btn-overlay" target="_blank">
-                                Ver website
-                            </a>
-                        </div>
-                    </div>
                     <div class=" md:mb-12 mb-10 md:px-4 px-0">
                         <div class="card card-center img-hover group">
                             <img class="card-image" src="./public/img/webflow.webp" alt="Benijo suite">
                             <a href="https://plantilla-restaurantes.webflow.io/" target="_blank"
-                                class="btn btn-primary btn-overlay">
-                                Ver website
-                            </a>
-                        </div>
-                    </div>
-                    <div class=" md:mb-12 mb-10 md:px-4 px-0">
-                        <div class="card card-center img-hover group">
-                            <img class="card-image" src="./public/img/office.webp" alt="modal example">
-                            <a href="./modal.html" target="_blank"
                                 class="btn btn-primary btn-overlay">
                                 Ver website
                             </a>
