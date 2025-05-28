@@ -31,7 +31,3 @@ export class Accordion {
         content.style.maxHeight = isOpen ? "0px" : content.scrollHeight + "px";
     }
 }
-
-window.addEventListener('load', () => {
-    new Accordion();
-});
