@@ -1,33 +1,40 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
+
 
 
 export class MyTooltip extends LitElement {
+  createRenderRoot() {
+    return this; // Usa el DOM global
+  }
+
   static properties = {
     text: { type: String },
   };
 
-  createRenderRoot() {
-    return this;
+  constructor() {
+    super();
+    this.text = '';
   }
 
   render() {
-    return html`<div class="tooltip opacity-0">${this.text}</div>`;
+    return html`
+      <div class="tooltip opacity-0">
+        ${this.text}
+      </div>
+    `;
   }
 
   show() {
-    const div = this.querySelector('.tooltip');
-    if (!div) return;
-    div.classList.remove('opacity-0');
-    div.classList.add('opacity-80');
+    this.querySelector('.tooltip')?.classList.remove('opacity-0');
+    this.querySelector('.tooltip')?.classList.add('opacity-85');
   }
 
   hide() {
-    const div = this.querySelector('.tooltip');
-    if (!div) return;
-    div.classList.remove('opacity-80');
-    div.classList.add('opacity-0');
+    this.querySelector('.tooltip')?.classList.remove('opacity-85');
+    this.querySelector('.tooltip')?.classList.add('opacity-0');
   }
 }
+
 customElements.define('my-tooltip', MyTooltip);
 
 export class LitModal extends LitElement {
@@ -65,6 +72,36 @@ export class LitModal extends LitElement {
       ${this.opening ? html`${this.#createDomElement()}` : ''}`;
   }
 
+  addContent() {
+    const content = document.createElement('article');
+
+    const title = document.createElement('h2');
+    title.className = 'text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-200';
+    title.textContent = 'Política de cookies';
+
+    const message = document.createElement('p');
+    message.className = 'mb-4 text-gray-700 dark:text-gray-200';
+    message.textContent = 'Esta web solo utiliza cookies necesarias para el correcto funcionamiento del sitio. No utilizamos cookies de publicidad ni de uso del sitio.';
+
+    content.append(title, message);
+    return content;
+  }
+
+  #addButton(type, hasTootlip) {
+    const button = document.createElement('button');
+    button.className = 'mt-2 px-4 py-2 bg-gray-800 hover:bg-gray-400 text-white rounded dark:bg-gray-200 dark:hover:bg-gray-400 dark:text-gray-800';
+    button.textContent = 'Cerrar';
+    button.addEventListener('click', this.close.bind(this));
+
+    if (hasTootlip) {
+      const tooltip = document.createElement('my-tooltip');
+      tooltip.text = 'Pulsa aquí para cerrar';
+      button.style.position = 'relative';
+      button.appendChild(tooltip);
+    }
+
+    return button;
+  }
 
   #createDomElement() {
     if (!this.opening) return;
@@ -76,32 +113,17 @@ export class LitModal extends LitElement {
     container.className = `bg-white p-6 rounded-lg shadow-2xl max-w-xl w-full dark:bg-gray-800 dark:text-white
     ${this.closing ? 'animate-fade-scale-out' : 'animate-popup-bounce'}`;
 
-    const title = document.createElement('h2');
-    title.className = 'text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-200';
-    title.textContent = 'Política de cookies';
-
-    const message = document.createElement('p');
-    message.className = 'mb-4 text-gray-700 dark:text-gray-200';
-    message.textContent = 'Esta web solo utiliza cookies necesarias para el correcto funcionamiento del sitio. No utilizamos cookies de publicidad ni de uso del sitio.';
-
-    const button = document.createElement('button');
-    button.className = 'mt-2 px-4 py-2 bg-gray-800 hover:bg-gray-400 text-white rounded dark:bg-gray-200 dark:hover:bg-gray-400 dark:text-gray-800';
-    button.textContent = 'Cerrar';
-    button.addEventListener('click', this.close.bind(this));
-
-    const tooltip = document.createElement('my-tooltip');
-    tooltip.text = 'Pulsa aquí para cerrar';
-    button.appendChild(tooltip);
-    tooltip.hide();
+    const button = this.#addButton('', true);
 
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) {
         container.classList.remove('animate-popup-bounce');
+
         void container.offsetWidth;
+
         container.classList.add('animate-popup-bounce');
 
-        clearTimeout(this.tooltipTimeout);
-
+        const tooltip = document.querySelector('my-tooltip');
         tooltip.show();
 
         this.tooltipTimeout = setTimeout(() => {
@@ -110,7 +132,10 @@ export class LitModal extends LitElement {
       }
     });
 
-    container.append(title, message, button);
+    const content = this.addContent();
+
+    container.append(content, button);
+
     overlay.appendChild(container);
 
     return overlay;
