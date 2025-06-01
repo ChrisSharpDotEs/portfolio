@@ -152,6 +152,9 @@
 
 /*Modales*/
 @layer components {
+    .edit-overlay {
+        @apply fixed inset-0 bg-[#69728463] bg-black/50 flex items-center justify-center z-50;
+    }
     .overlay {
         @apply fixed inset-0 bg-[#69728463] backdrop-blur-sm flex items-center justify-center z-50;
     }

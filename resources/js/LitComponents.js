@@ -1,5 +1,58 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 
+export class BaseModal extends LitElement {
+   static properties = {
+    opening: { type: Boolean },
+    closing: { type: Boolean },
+  };
+
+  constructor() {
+    super();
+    this.opening = false;
+    this.closing = false;
+    this.tooltipTimeout;
+  }
+
+  createRenderRoot() {
+    return this;
+  }
+
+  open() {
+    this.opening = true;
+    this.closing = false;
+  }
+
+  close() {
+    this.closing = true;
+    setTimeout(() => {
+      this.opening = false;
+      this.closing = false;
+    }, 300);
+  }
+
+  render() {
+    //if(typeof content != HTMLElement) return;
+    if (!this.opening) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'edit-overlay';
+
+    const container = document.createElement('div');
+    container.className = `bg-white p-6 rounded-lg shadow-2xl max-w-xl w-full dark:bg-gray-800 min-h-[80vh]
+    ${this.closing ? 'animate-fade-scale-out' : 'animate-popup-bounce'}`;
+
+    overlay.append(container);
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        this.close();
+      }
+    });
+
+    return html`${this.opening ? html`${overlay}` : ''}`;
+  }
+
+}
 export class MyTooltip extends LitElement {
   createRenderRoot() {
     return this;

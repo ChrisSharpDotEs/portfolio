@@ -1,4 +1,4 @@
-import { LitModal } from "./LitComponents.js";
+import { LitModal, BaseModal } from "./LitComponents.js";
 
 class UIManager {
     constructor(config) {
@@ -225,6 +225,64 @@ class Animate {
     }
 }
 
+function fetchData() {
+    customElements.define('edit-modal', BaseModal);
+
+    fetch('public/data/items.json')
+        .then(response => response.json())
+        .then(data => {
+            function createActionButtons(id) {
+                return `<button class="">
+                        <!-- Icono Editar -->
+                        <button class="btn btn-primary bg-teal-400" data-id="edit-${id}">
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                <path d="M21.28 6.4L11.74 15.94C10.79 16.89 7.97 17.33 7.34 16.7C6.71 16.07 7.14 13.25 8.09 12.3L17.64 2.75C18.72 1.67 20.63 2.7 21.28 3.35C21.93 4 22.27 5.31 21.28 6.4Z" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M11 4H6C4.94 4 3.92 4.42 3.17 5.17C2.42 5.92 2 6.94 2 8V18C2 19.06 2.42 20.08 3.17 20.83C3.92 21.58 4.94 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="btn btn-primary bg-red-500" data-id="delete-${id}">
+                            <!-- Icono Eliminar -->
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                <path d="M3 3L6 6M6 6L10 10M6 6V18C6 19.66 7.34 21 9 21H15C16.66 21 18 19.66 18 18M6 6H4M10 10L14 14M10 10V17M14 14L18 18M14 14V17M18 18L21 21M18 6V12.39M18 6H16M18 6H20M16 6L15.46 4.37C15.18 3.55 14.42 3 13.56 3H10.44C9.94 3 9.48 3.19 9.12 3.5M16 6H11.61" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>`;
+            }
+            function renderTableRows(products) {
+                return products.map(item => {
+                    const tr = document.createElement('tr');
+                    tr.classList.add('odd:bg-white', 'odd:dark:bg-gray-900', 'even:bg-gray-50', 'even:dark:bg-gray-800', 'border-b', 'dark:border-gray-700', 'border-gray-200');
+
+                    Object.values(item).forEach(property => {
+                        const td = document.createElement('td');
+                        td.classList.add('px-6', 'py-4');
+                        td.append(property);
+                        tr.append(td);
+                    });
+                    const td = document.createElement('td');
+                    td.classList.add('px-6', 'py-4');
+
+                    td.innerHTML = createActionButtons();
+                    tr.appendChild(td);
+                    return tr;
+                });
+
+            }
+
+            const products = renderTableRows(data);
+
+            const productlist = document.getElementById('product-list');
+
+            productlist.append(...products);
+
+            productlist.querySelectorAll('button').forEach(item => {
+                item.addEventListener('click', () => {
+                    const id = item.getAttribute('data-id');
+                    document.querySelector('edit-modal').open();
+                });
+            })
+        });
+}
+
 function init() {
     document.documentElement.classList.toggle('dark');
 
@@ -237,8 +295,10 @@ function init() {
         uiManager.init();
 
         customElements.define('lit-modal', LitModal);
-        
-        document.querySelector('#main-section').classList.add('bg-image');
+
+        document.querySelector('#main-section')?.classList.add('bg-image');
+
+        if (document.getElementById('product-list')) fetchData();
 
     } catch (error) {
         console.log(error);
