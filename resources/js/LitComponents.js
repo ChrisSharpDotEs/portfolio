@@ -1,10 +1,8 @@
 import { LitElement, html, css } from 'lit';
 
-
-
 export class MyTooltip extends LitElement {
   createRenderRoot() {
-    return this; // Usa el DOM global
+    return this;
   }
 
   static properties = {
@@ -34,8 +32,6 @@ export class MyTooltip extends LitElement {
     this.querySelector('.tooltip')?.classList.add('opacity-0');
   }
 }
-
-customElements.define('my-tooltip', MyTooltip);
 
 export class LitModal extends LitElement {
   static properties = {
@@ -89,7 +85,7 @@ export class LitModal extends LitElement {
 
   #addButton(type, hasTootlip) {
     const button = document.createElement('button');
-    button.className = 'mt-2 px-4 py-2 bg-gray-800 hover:bg-gray-400 text-white rounded dark:bg-gray-200 dark:hover:bg-gray-400 dark:text-gray-800';
+    button.className = 'btn btn-primary';
     button.textContent = 'Cerrar';
     button.addEventListener('click', this.close.bind(this));
 
@@ -107,10 +103,10 @@ export class LitModal extends LitElement {
     if (!this.opening) return;
 
     const overlay = document.createElement('div');
-    overlay.className = 'fixed inset-0 bg-[#69728463] backdrop-blur-sm flex items-center justify-center z-50';
+    overlay.className = 'overlay';
 
     const container = document.createElement('div');
-    container.className = `bg-white p-6 rounded-lg shadow-2xl max-w-xl w-full dark:bg-gray-800 dark:text-white
+    container.className = `bg-white p-6 rounded-lg shadow-2xl max-w-xl w-full dark:bg-gray-800
     ${this.closing ? 'animate-fade-scale-out' : 'animate-popup-bounce'}`;
 
     const button = this.#addButton('', true);
@@ -142,3 +138,5 @@ export class LitModal extends LitElement {
   }
 
 }
+
+customElements.define('my-tooltip', MyTooltip);

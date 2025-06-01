@@ -1,4 +1,4 @@
-import { LitModal } from "./js/Modal.js";
+import { LitModal } from "./LitComponents.js";
 
 class UIManager {
     constructor(config) {
@@ -233,15 +233,12 @@ function init() {
     CountUp.init(2000);
 
     try {
-        if (document.getElementById('modal')) {
-            const miModal = new CookieModal('modal');
-            miModal.init();
-        }
-
         const uiManager = new UIManager(['navbarToggler', 'menuHandler', 'accordionHandler', 'sidebarToggler']);
         uiManager.init();
 
         customElements.define('lit-modal', LitModal);
+        
+        document.querySelector('.bg-image').style.backgroundImage = "url('../../src/img/coffee1.webp')";
 
     } catch (error) {
         console.log(error);

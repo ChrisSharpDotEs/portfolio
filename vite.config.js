@@ -5,11 +5,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        index: resolve(__dirname, 'resources/index.js'),
+        index: resolve(__dirname, 'resources/js/index.js'),
       },
       output: {
-        entryFileNames: 'index.min.js',
-        dir: resolve(__dirname, 'public')
+        entryFileNames: 'js/index.min.js',
+        dir: resolve(__dirname, 'public/')
       }
     },
     emptyOutDir: false,

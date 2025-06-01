@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:css": "npx postcss ./public/css/app.css --use cssnano --output ./public/css/app.min.css",
-    "tailwind:dev": "npx @tailwindcss/cli -i ./resources/input.css -o ./public/css/app.css --watch",
-    "tailwind:build": "npx @tailwindcss/cli -i ./resources/input.css -o ./public/css/app.css --minify",
-    "dev": "concurrently \"vite\" \"npm run tailwind:dev\"",
-    "build": "npm run tailwind:build && npm run build:css && vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "css": "tailwindcss -i resources/css/input.css -o public/css/app.min.css --minify",
+  "dev": "concurrently \"vite\" \"tailwindcss -i resources/css/input.css -o public/css/app.min.css --watch\"",
+  "build": "npm run css && vite build",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
