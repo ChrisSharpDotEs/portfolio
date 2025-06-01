@@ -238,7 +238,7 @@ function init() {
 
         customElements.define('lit-modal', LitModal);
         
-        document.querySelector('.bg-image').style.backgroundImage = "url('../../public/img/coffee1.webp')";
+        document.querySelector('#main-section').classList.add('bg-image');
 
     } catch (error) {
         console.log(error);
