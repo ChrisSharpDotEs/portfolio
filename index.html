@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="shortcut icon" href="" type="image/x-icon">
+    <title>Not available</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
     <link rel="stylesheet" href="static/css/output.css">
 </head>
+
 <body>
     <div class="flex justify-center items-center min-h-screen">
-        <div class="shadow rounded p-4 bg-gray-200">
-            <h1 class="text-lg text-gray-800 text-center">Importante ⚠</h1>
-            <p>La página se encuentra inhabilitada en estos momentos.</p>
+        <div id="content" class="text-center p-4">
+            <p class="text-lg font-bold p-4">Para ver mi proyecto</p>
+            <button class="focus:ring-4 focus:outline-none rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center min-w-[100px] text-white font-bold bg-blue-400 hover:bg-blue-500 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Pulse aquí</button>
         </div>
     </div>
+    <script>
+        const button = document.querySelector('button');
+        const content = document.getElementById('content');
+        button.addEventListener('click', () => {
+            content.style.position = 'absolute';
+            content.style.top = (Math.random() * 50) + 'rem';
+            content.style.left = (Math.random() * 50) + 'rem';
+        });
+    </script>
 </body>
+
 </html>
