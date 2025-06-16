@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not available</title>
     <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="stylesheet" href="static/css/output.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
@@ -20,9 +20,13 @@
         const button = document.querySelector('button');
         const content = document.getElementById('content');
         button.addEventListener('click', () => {
+            const x = parseInt(Math.random() * window.innerWidth) + 'px';
+            const y = parseInt(Math.random() * window.innerHeight) + 'px';
+            
+            console.log(y, window.innerHeight);
             content.style.position = 'absolute';
-            content.style.top = (Math.random() * 50) + 'rem';
-            content.style.left = (Math.random() * 50) + 'rem';
+            content.style.left = x
+            content.style.top = y
         });
     </script>
 </body>
