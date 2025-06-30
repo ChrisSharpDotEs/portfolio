@@ -22,11 +22,18 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-white drop-shadow">Mi Portfolio</h1>
-            <nav class="space-x-4 text-white font-medium drop-shadow">
-                <a href="#proyectos" class="hover:text-blue-200">Proyectos</a>
-                <a href="#sobre-mi" class="hover:text-blue-200">Sobre mí</a>
-                <a href="#contacto" class="hover:text-blue-200">Contacto</a>
-            </nav>
+            <div>
+                <input type="checkbox" id="menu-toggle" class="hidden peer" />
+                <label for="menu-toggle" class="md:hidden cursor-pointer text-white text-2xl">
+                    ☰
+                </label>
+                <nav
+                    class="hidden peer-checked:flex flex-col absolute top-full left-0 w-full bg-white/90 text-gray-800 md:static md:flex md:flex-row md:items-center md:space-x-6 md:bg-transparent md:text-white md:backdrop-blur-none">
+                    <a href="#proyectos" class="px-6 py-3 hover:text-indigo-600 md:hover:text-indigo-200">Proyectos</a>
+                    <a href="#sobre-mi" class="px-6 py-3 hover:text-indigo-600 md:hover:text-indigo-200">Sobre mí</a>
+                    <a href="#contacto" class="px-6 py-3 hover:text-indigo-600 md:hover:text-indigo-200">Contacto</a>
+                </nav>
+            </div>
         </div>
     </header>
     <main>
