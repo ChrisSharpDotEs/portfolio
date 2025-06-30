@@ -1,34 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not available</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Portfolio</title>
     <link rel="shortcut icon" href="#" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./static/css/output.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(to bottom right, rgba(70, 134, 229, 0.726), rgba(99, 161, 241, 0.7)),
+                url('./static/images/bg-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="flex justify-center items-center min-h-screen">
-        <div id="content" class="text-center p-4">
-            <p class="text-lg font-bold p-4">Para ver mi proyecto</p>
-            <button class="focus:ring-4 focus:outline-none rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center min-w-[100px] text-white font-bold bg-blue-400 hover:bg-blue-500 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Pulse aquí</button>
+<body class="flex flex-col justify-between gap-4 text-gray-800 font-sans">
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white drop-shadow">Mi Portfolio</h1>
+            <nav class="space-x-4 text-white font-medium drop-shadow">
+                <a href="#proyectos" class="hover:text-blue-200">Proyectos</a>
+                <a href="#sobre-mi" class="hover:text-blue-200">Sobre mí</a>
+                <a href="#contacto" class="hover:text-blue-200">Contacto</a>
+            </nav>
         </div>
-    </div>
-    <script>
-        const button = document.querySelector('button');
-        const content = document.getElementById('content');
-        button.addEventListener('click', () => {
-            const x = parseInt(Math.random() * window.innerWidth) + 'px';
-            const y = parseInt(Math.random() * window.innerHeight) + 'px';
-            
-            console.log(y, window.innerHeight);
-            content.style.position = 'absolute';
-            content.style.left = x
-            content.style.top = y
-        });
-    </script>
+    </header>
+    <main>
+        <section class="flex justify-center items-center hero-bg text-white pt-32 pb-24 min-h-[90vh]">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4 drop-shadow-lg">Bienvenido a mi pequeño rincón en la web</h2>
+                <p class="text-lg drop-shadow">
+                    Desarrollador web apasionado por crear experiencias digitales modernas y
+                    funcionales.
+                </p>
+            </div>
+        </section>
+        <section id="proyectos" class="py-16 bg-gray-100">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold mb-4">Proyectos Destacados</h3>
+                    <div class="bg-yellow-400 p-4 text-gray-600">Próximamente...</div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="#" alt="Proyecto 1" class="w-full">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold mb-2">Proyecto Uno</h4>
+                            <p class="text-gray-600">Descripción breve del proyecto. Tecnologías utilizadas y objetivos
+                                alcanzados.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="#" alt="Proyecto 2" class="w-full">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold mb-2">Proyecto Dos</h4>
+                            <p class="text-gray-600">
+                                Descripción breve del proyecto. Tecnologías utilizadas y objetivos
+                                alcanzados.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="#" alt="Proyecto 3" class="w-full">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold mb-2">Proyecto Tres</h4>
+                            <p class="text-gray-600">
+                                Descripción breve del proyecto. Tecnologías utilizadas y objetivos
+                                alcanzados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sobre-mi" class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-6">Sobre mí</h3>
+                <p class="text-gray-700 text-lg">
+                    Soy un desarrollador con experiencia en frontend y backend. Me encanta
+                    trabajar con tecnologías modernas como Tailwind CSS, React y Node.js. Siempre estoy aprendiendo y
+                    buscando nuevos desafíos.
+                </p>
+            </div>
+        </section>
+        <section id="contacto" class="py-16 bg-blue-400 text-white">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-6">Contacto</h3>
+                <p class="mb-4">¿Quieres trabajar conmigo o tienes alguna pregunta?</p>
+                <button class="relative overflow-hidden px-6 py-3 rounded text-white font-semibold bg-blue-600 group">
+                    <span class="relative z-10">Escríbeme</span>
+                    <span
+                        class="absolute inset-0 bg-gradient-to-b from-blue-700 to-blue-400 opacity-0 group-hover:opacity-50 transition-opacity duration-500"></span>
+                </button>
+
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-200 text-center py-4 text-sm text-gray-600">
+        © 2025 Kristian. Todos los derechos reservados.
+    </footer>
 </body>
 
 </html>
