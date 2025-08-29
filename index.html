@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Portfolio</title>
     <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="stylesheet" href="./static/css/output.css">
     <style>
         .hero-bg {
             background-image: linear-gradient(to bottom right, rgba(70, 134, 229, 0.726), rgba(99, 161, 241, 0.7)),
-                url('./static/images/bg-image.jpg');
+                url('./public/images/bg-image.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
     </style>
+    <link rel="stylesheet" href="./src/css/output.css" />
 </head>
 
 <body class="flex flex-col justify-between gap-4 text-gray-800 font-sans">
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm">
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm bg-purple-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-white drop-shadow">Mi Portfolio</h1>
             <div>
@@ -44,6 +44,7 @@
                     Desarrollador web apasionado por crear experiencias digitales modernas y
                     funcionales.
                 </p>
+                <my-modal></my-modal>
             </div>
         </section>
         <section id="proyectos" class="py-16 bg-gray-100">

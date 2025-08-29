@@ -1,0 +1,32 @@
+@config "../../tailwind.config.mjs";
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2.modal-title {
+    @apply text-2xl font-semibold mb-4 text-gray-800;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    @apply flex items-center justify-center;
+}
+
+.btn-close {
+    @apply absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold leading-none focus:outline-none;
+}

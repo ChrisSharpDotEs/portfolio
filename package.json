@@ -1,16 +1,18 @@
 {
-  "name": "web",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.10",
-    "tailwindcss": "^4.1.10"
+    "lit": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^7.1.2"
   }
 }

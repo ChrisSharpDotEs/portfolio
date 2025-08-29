@@ -1,0 +1,194 @@
+<section class="container mx-auto px-4 py-8 min-h-screen bg-gray-100">
+
+    <h1 class="text-3xl font-bold mb-6 text-center">Acordeón Accesible</h1>
+
+    <div class="flex flex-col gap-3">
+
+        
+
+        <!-- Sección 1 -->
+
+        <div class="rounded-lg bg-white shadow">
+
+            <button class="accordion-header w-full text-left px-4 py-3 bg-blue-600 text-white font-semibold rounded-md focus:outline-none focus:ring focus:ring-blue-300 transition-all flex justify-between items-center" 
+
+                aria-expanded="false" 
+
+                aria-controls="content1">
+
+                <span>Sección 1</span>
+
+                <span class="accordion-icon transform transition-transform">▼</span>
+
+            </button>
+
+            <div id="content1" 
+
+                class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 bg-white" 
+
+                role="region" 
+
+                aria-labelledby="content1" 
+
+                aria-hidden="true">
+
+                <p class="py-2">
+                  <div class="container mx-auto px-4 py-8 flex justify-center items-center bg-gray-100">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Actualizar Datos</h2>
+
+        
+
+        <form id="updateForm" class="space-y-4">
+
+            <!-- Nombre -->
+
+            <div>
+
+                <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+
+                <input type="text" id="name" name="name" class="mt-1 p-2 w-full border rounded-md" required>
+
+            </div>
+
+            <!-- Correo -->
+
+            <div>
+
+                <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+
+                <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md" required>
+
+            </div>
+
+            <!-- Teléfono -->
+
+            <div>
+
+                <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono</label>
+
+                <input type="tel" id="phone" name="phone" class="mt-1 p-2 w-full border rounded-md">
+
+            </div>
+
+            <!-- Botón de Enviar -->
+
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">
+
+                Guardar Cambios
+
+            </button>
+
+        </form>
+
+        <!-- Mensaje de éxito -->
+
+        <p id="successMessage" class="hidden text-green-600 mt-3 text-center">¡Datos actualizados con éxito!</p>
+
+    </div>
+
+</div>
+                  
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Sección 2 -->
+
+        <div class="rounded-lg bg-white shadow">
+
+            <button class="accordion-header w-full text-left px-4 py-3 bg-blue-600 text-white font-semibold rounded-md focus:outline-none focus:ring focus:ring-blue-300 transition-all flex justify-between items-center" 
+
+                aria-expanded="false" 
+
+                aria-controls="content2">
+
+                <span>Sección 2</span>
+
+                <span class="accordion-icon transform transition-transform">▼</span>
+
+            </button>
+
+            <div id="content2" 
+
+                class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-4 bg-white" 
+
+                role="region" 
+
+                aria-labelledby="content2" 
+
+                aria-hidden="true">
+
+                <p class="py-2">Contenido de la sección 2.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+script
+      document.addEventListener("DOMContentLoaded", () => {
+
+    const accordions = document.querySelectorAll(".accordion-header");
+
+    accordions.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const content = document.getElementById(button.getAttribute("aria-controls"));
+
+            const icon = button.querySelector(".accordion-icon");
+
+            const isOpen = button.getAttribute("aria-expanded") === "true";
+
+            // Cierra todos los demás acordeones (opcional)
+
+            document.querySelectorAll(".accordion-header").forEach(otherButton => {
+
+                if (otherButton !== button) {
+
+                    const otherContent = document.getElementById(otherButton.getAttribute("aria-controls"));
+
+                    otherButton.setAttribute("aria-expanded", "false");
+
+                    otherContent.style.maxHeight = "0px";
+
+                    otherContent.setAttribute("aria-hidden", "true");
+
+                    otherButton.querySelector(".accordion-icon").classList.remove("rotate-180");
+
+                }
+
+            });
+
+            // Abre o cierra el acordeón actual
+
+            button.setAttribute("aria-expanded", !isOpen);
+
+            content.setAttribute("aria-hidden", isOpen);
+
+            icon.classList.toggle("rotate-180");
+
+            if (isOpen) {
+
+                content.style.maxHeight = "0px";
+
+            } else {
+
+                content.style.maxHeight = content.scrollHeight + "px";
+
+            }
+
+        });
+
+    });
+
+});
+script
