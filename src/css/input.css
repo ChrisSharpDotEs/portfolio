@@ -1,8 +1,5 @@
 @config "../../tailwind.config.mjs";
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 h2.modal-title {
     @apply text-2xl font-semibold mb-4 text-gray-800;
