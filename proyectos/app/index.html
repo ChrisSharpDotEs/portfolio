@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+    <div class="min-h-screen bg-gray-200 dark:bg-gray-800 py-32 px-4">
+        <div class="rounded shadow p-4 dark:bg-gray-700">
+            <div id="table-container"></div>
+            <form onsubmit="guardarDatos(event)">
+                <div class="flex items-center gap-4 mb-4">
+                    <label for="kilometers"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kilometraje</label>
+                    <input id="kilometers" type="number" min="300000" max="400000" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <span id="km-value" class="text-sm text-gray-900 dark:text-white">300000</span>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="fecha">Fecha:</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="date" id="fecha" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="litros">Litros de combustible:</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number" id="litros" step="0.01" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="precio">Precio del repostaje (€):</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:bordcristianer-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number" id="precio" step="0.01" required>
+                </div>
+                <button class="p-2 bg-green-400 hover:bg-green-500 text-white rounded" type="submit">Guardar</button>
+                <button class="p-2 bg-teal-400 hover:bg-teal-500 text-white rounded" type="button" onclick="descargarJSON()">Descargar JSON</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
