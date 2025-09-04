@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="A portfolio showcasing my work as a web developer, including projects in HTML, CSS, JavaScript, and more.">
+    <title>Mi Portfolio</title>
+    <link rel="shortcut icon" href="src/assets/lit.svg" type="image/x-icon">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(to bottom right, rgba(70, 134, 229, 0.726), rgba(99, 161, 241, 0.7)),
+                url('src/assets/bg-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <link rel="stylesheet" href="src/tailwind.global.css">
+    <script type="module" src="src/index.ts"></script>
+</head>
+
+<body class="flex flex-col justify-between text-gray-800 font-sans">
+    <header
+        class="fixed top-0 left-0 w-full z-2 bg-white/30 backdrop-blur-md shadow-sm bg-purple-800 transition-all duration-1000">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white drop-shadow">Mi Portfolio
+                <span class="block text-sm">Powered By Lit Element</span>
+            </h1>
+            <div>
+                <input type="checkbox" id="menu-toggle" class="hidden peer" />
+                <label for="menu-toggle" class="md:hidden cursor-pointer text-white text-2xl">
+                    ☰
+                </label>
+                <nav
+                    class="hidden peer-checked:flex flex-col absolute top-full left-0 w-full bg-white/90 text-gray-800 md:static md:flex md:flex-row md:items-center md:space-x-6 md:bg-transparent md:text-white md:backdrop-blur-none">
+                    <a href="#proyectos" class="px-6 py-3 hover:text-indigo-600 md:hover:text-indigo-200">Proyectos</a>
+                    <a href="#sobre-mi" class="px-6 py-3 hover:text-indigo-600 md:hover:text-indigo-200">Sobre mí</a>
+                    <a href="#contacto" class="px-6 py-3 hover:text-indigo-600 md:hover:text-indigo-200">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section
+            class="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white flex flex-col justify-center items-center px-6 py-12">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 text-2xl font-semibold mb-8">
+                <span class="px-4 py-2 rounded">Innovar</span>
+                <span class="px-4 py-2 rounded">Construir</span>
+                <span class="px-4 py-2 rounded">Transformar</span>
+            </div>
+            <div class="w-full h-1 bg-blue-300 dark:bg-blue-500 mb-8"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-6xl">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Velocidad</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-300">
+                        Optimiza tu flujo de trabajo con herramientas
+                        que responden al instante.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Simplicidad</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-300">
+                        Diseño limpio y funcional para que te
+                        concentres en lo que importa.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Escalabilidad</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-300">
+                        Construye soluciones que crecen contigo, sin complicaciones.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="flex justify-center items-center hero-bg text-white pt-32 pb-24 min-h-[90vh]">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4 drop-shadow-lg">Bienvenido a mi pequeño rincón en la web</h2>
+                <p class="text-lg drop-shadow">
+                    Desarrollador web apasionado por crear experiencias digitales modernas y
+                    funcionales.
+                </p>
+            </div>
+        </section>
+        <section id="sobre-mi"
+            class="flex justify-center items-center bg-gray-200 text-gray-800 pt-32 pb-24 min-h-[90vh]">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-6 scale-up">Sobre mí</h3>
+                <p class="text-gray-700 text-lg scale-up">
+                    Soy un desarrollador con experiencia en frontend y backend. Me encanta
+                    trabajar con tecnologías modernas como Tailwind CSS, React y Node.js. Siempre estoy aprendiendo y
+                    buscando nuevos desafíos.
+                </p>
+            </div>
+        </section>
+        <section id="proyectos"
+            class="flex flex-col md:gap-12 gap-4 justify-center items-center bg-blue-300 text-gray-800 pt-32 pb-24 min-h-[90vh] md:px-32 px-4">
+            <div class="grid md:grid-cols-2 grid-cols-1 gap-4 flex-1 items-center">
+                <div class="flex flex-col justify-start gap-8">
+                    <h3 class="font-bold">Cross-Site Scripting (XSS)</h3>
+                    <p>
+                        Un atacante inyecta scripts dañinos, generalmente JavaScript, en páginas web vistas por otros
+                        usuarios.
+                        El script puede robar información de las cookies, secuestrar sesiones de usuario o redirigir a
+                        sitios web maliciosos.
+                        Existen tres tipos principales de XSS:
+                    <ul>
+                        <li>
+                            <span class="font-bold">Reflejado:</span>
+                            El script malicioso se inyecta a través de la URL
+                            y se "refleja" de vuelta en la página web.
+                        </li>
+                        <li><span class="font-bold">Almacenado:</span>
+                            El script se almacena en la base de datos del
+                            servidor (por ejemplo, en un comentario de
+                            un blog) y se ejecuta cada vez que un usuario visita la página.</li>
+                        <li><span class="font-bold">Basado en DOM:</span>Basado en DOM: La inyección ocurre en el
+                            navegador del usuario al manipular el Document Object Model
+                            (DOM) de la página.
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 grid-cols-1 gap-4 flex-1 items-center">
+                <div class="flex flex-col justify-start gap-8">
+                    <h3 class="font-bold">Secuestro de Sesión (Session Hijacking)</h3>
+                    <p>
+                        El atacante roba la cookie de sesión de un usuario para hacerse pasar por él sin necesidad de
+                        conocer su nombre de usuario y contraseña. Una vez que se apodera de la sesión, puede realizar
+                        acciones en nombre del usuario legítimo.
+                    </p>
+                    <button class="btn btn-secondary w-40">Ver ejemplo</button>
+                </div>
+            </div>
+        </section>
+        <section id="contacto" class="flex items-center justify-center min-h-200 bg-blue-400 text-white">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-6">Contacto</h3>
+                <p class="mb-4">¿Quieres trabajar conmigo o tienes alguna pregunta?</p>
+                <a href="mailto:example@email.com" class="btn btn-primary">
+                    Escríbeme
+                </a>
+            </div>
+        </section>
+    </main>
+    <tws-modal id="modal" effect="fadeIn" open></tws-modal>
+    <footer class="bg-gray-200 text-center py-4 text-sm text-gray-600">
+        © 2025 Kristian. Todos los derechos reservados.
+    </footer>
+</body>
+
+</html>

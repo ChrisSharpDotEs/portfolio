@@ -1,0 +1,47 @@
+🎓 Estilo LaTeX en editores tradicionales
+1. Tipografía
+Usa fuentes similares a las de LaTeX:
+
+TeX Gyre Termes (similar a Times)
+
+Latin Modern Roman (si está disponible)
+
+Alternativas: Georgia, Garamond, o Palatino Linotype
+
+Tamaño de fuente: 12 pt para cuerpo, 14–16 pt para títulos
+
+2. Márgenes y espaciado
+Márgenes: 2.5 cm en todos los lados (como en LaTeX por defecto)
+
+Interlineado: 1.5 o doble espacio para documentos académicos
+
+Sangría de párrafo: 0.5 cm al inicio de cada párrafo (evita saltos de línea entre párrafos)
+
+3. Estilos de título
+Configura estilos personalizados para:
+
+Título principal: centrado, negrita, tamaño 16–18 pt
+
+Secciones: numeradas, negrita, tamaño 14 pt
+
+Subsecciones: numeradas, tamaño 12 pt, sin negrita o con cursiva
+
+4. Numeración automática
+Usa los estilos de encabezado para generar una tabla de contenido automática
+
+Activa numeración de secciones/subsecciones si el editor lo permite
+
+5. Listas y enumeraciones
+Usa listas con viñetas simples o numeradas
+
+Evita decoraciones innecesarias (colores, íconos, etc.)
+
+6. Fórmulas matemáticas
+En Word y LibreOffice: usa el editor de ecuaciones integrado
+
+En Google Docs: puedes insertar ecuaciones con complementos como MathType
+
+7. Referencias y bibliografía
+Usa herramientas como Zotero o el gestor de citas de Word/Docs
+
+Formato APA, IEEE, o el que se requiera, con estilo uniforme
